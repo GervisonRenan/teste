@@ -1,0 +1,33 @@
+# Função para obter a escolha do computador
+function escolha_computador()
+    opções = ["pedra", "papel", "tesoura"]
+    return opções[rand(1:3)]
+end
+
+# Função para determinar o vencedor
+function determinar_vencedor(jogador, computador)
+    if jogador == computador
+        return "Empate!"
+    elseif (jogador == "pedra" && computador == "tesoura") ||
+           (jogador == "papel" && computador == "pedra") ||
+           (jogador == "tesoura" && computador == "papel")
+        return "Você venceu!"
+    else
+        return "O computador venceu!"
+    end
+end
+
+# Função principal do jogo
+function jogar()
+    println("Escolha pedra, papel ou tesoura:")
+    jogador = readline()
+
+    computador = escolha_computador()
+    println("O computador escolheu: $computador")
+
+    resultado = determinar_vencedor(jogador, computador)
+    println(resultado)
+end
+
+# Inicia o jogo
+jogar()
