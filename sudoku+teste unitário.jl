@@ -19,16 +19,17 @@ function sudoku_valido(board::Array{Union{Int, Nothing}, 2})::Bool ### foi pesqu
     end
     
     # Verificar linhas
-    for linha in board
-        if num-repetidos(linha)
+    for linha in 1:size(board, 2)
+        linha = board[:, linha]
+        if num_repetidos(linha)
             return false
         end
     end
 
     # Verificar colunas
     for coluna in 1:size(board, 2)
-        colunas= board[:, col]
-        if num_repetidos(colunas)
+        coluna = board[:, coluna]
+        if num_repetidos(coluna)
             return false
         end
     end
